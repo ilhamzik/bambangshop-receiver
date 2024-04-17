@@ -86,4 +86,8 @@ This is the place for you to write reflections:
 
 #### Reflection Subscriber-1
 
+## 1. Saat memilih antara Mutex<> dan RwLock<>, pertimbangkan bagaimana akses data terjadi dalam aplikasi kita. Mutex<> memberikan akses eksklusif, sehingga hanya satu thread yang dapat mengakses data pada satu waktu. Sementara itu, RwLock<> memungkinkan pembacaan oleh beberapa thread secara bersamaan, namun hanya satu thread yang bisa menulis pada satu waktu. Jika kita menghadapi skenario di mana pembacaan notifikasi sering terjadi oleh banyak thread secara bersamaan, maka RwLock<> bisa menjadi pilihan yang tepat. RwLock<> memungkinkan pembacaan data tanpa mengalami blokade antar thread. Namun, perlu diperhatikan bahwa jika terjadi penulisan yang jarang tetapi penting, RwLock<> dapat mempengaruhi performa karena pembacaan mungkin terhenti sementara saat penulisan berlangsung. Jadi, dalam konteks di mana pembacaan notifikasi sering dilakukan oleh banyak thread secara bersamaan, RwLock<> lebih disukai karena memungkinkan pembacaan bersamaan tanpa mengorbankan keamanan data.
+
+## 2. Di Rust, aturan tentang kepemilikan dan peminjaman dirancang untuk mencegah variabel-variabel melampaui batasan konteks awal mereka. Tujuannya adalah untuk mencegah situasi yang berpotensi berbahaya seperti perlombaan data, di mana beberapa thread bersaing untuk mengakses atau memodifikasi data yang sama secara bersamaan. Dengan menerapkan aturan ini, Rust memastikan keamanan thread dengan memastikan bahwa hanya satu thread yang bisa memodifikasi data pada satu waktu tertentu, mengurangi risiko kesalahan dan konflik yang terkait dengan thread.
+
 #### Reflection Subscriber-2

@@ -59,25 +59,25 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   Open another new terminal, edit `ROCKET_PORT` in `.env` to `8003`, then execute `cargo run`.
 
 ## Mandatory Checklists (Subscriber)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
+-   [x] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create SubscriberRequest model struct.`
-    -   [ ] Commit: `Create Notification database and Notification repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Notification repository.`
-    -   [ ] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+    -   [x] Commit: `Create Notification model struct.`
+    -   [x] Commit: `Create SubscriberRequest model struct.`
+    -   [x] Commit: `Create Notification database and Notification repository struct skeleton.`
+    -   [x] Commit: `Implement add function in Notification repository.`
+    -   [x] Commit: `Implement list_all_as_string function in Notification repository.`
+    -   [x] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [x] Commit: `Create Notification service struct skeleton.`
+    -   [x] Commit: `Implement subscribe function in Notification service.`
+    -   [x] Commit: `Implement subscribe function in Notification controller.`
+    -   [x] Commit: `Implement unsubscribe function in Notification service.`
+    -   [x] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [x] Commit: `Implement receive_notification function in Notification service.`
+    -   [x] Commit: `Implement receive function in Notification controller.`
+    -   [x] Commit: `Implement list_messages function in Notification service.`
+    -   [x] Commit: `Implement list function in Notification controller.`
+    -   [x] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -91,3 +91,9 @@ This is the place for you to write reflections:
 ## 2. Di Rust, aturan tentang kepemilikan dan peminjaman dirancang untuk mencegah variabel-variabel melampaui batasan konteks awal mereka. Tujuannya adalah untuk mencegah situasi yang berpotensi berbahaya seperti perlombaan data, di mana beberapa thread bersaing untuk mengakses atau memodifikasi data yang sama secara bersamaan. Dengan menerapkan aturan ini, Rust memastikan keamanan thread dengan memastikan bahwa hanya satu thread yang bisa memodifikasi data pada satu waktu tertentu, mengurangi risiko kesalahan dan konflik yang terkait dengan thread.
 
 #### Reflection Subscriber-2
+
+## 1. Dari apa yang Anda temukan dalam file lib.rs, terlihat bahwa ini adalah pusat kendali dari seluruh proyek Rust ini. Di sini, Anda tidak hanya menemukan variabel global yang diinisialisasi dan struktur data yang didefinisikan, tetapi juga fungsi-fungsi penting yang mengatur alur kerja aplikasi. Lib.rs menjadi landasan dari aplikasi ini. Dari sini, segala sesuatu dimulai dan terkoordinasi. Inilah tempat di mana fondasi dibangun untuk menjalankan aplikasi dengan mulus, dan di mana struktur data yang vital ditetapkan. Jadi, dalam konteks ini, lib.rs dapat dianggap sebagai otak dari proyek Rust ini.
+
+## 2. Dengan menerapkan pola Observer, kita dapat meminimalkan ketergantungan antara Main App dan Receiver dalam aplikasi kita. Ini berarti ketika ada perubahan atau penambahan receiver, inti dari aplikasi tidak akan terpengaruh. Tiap receiver berperan sebagai pengamat independen, sehingga mereka hanya akan diberi tahu saat ada perubahan yang berkaitan dengan mereka. Ini memberikan fleksibilitas lebih dalam mengelola dan memperluas aplikasi tanpa risiko mengganggu bagian utama aplikasi. Tidak hanya itu, penggunaan pola Observer membuat penambahan instance Main App menjadi lebih sederhana. Setiap instance Main App dapat mengelola daftar pengamatnya sendiri, sehingga tidak perlu khawatir tentang interaksi antara instance-instance tersebut. Namun, jika kita menginginkan semua pengamat menerima notifikasi dari setiap instance Main App, diperlukan logika tambahan untuk menyatukan komunikasi antar instance. Hal ini mungkin memerlukan implementasi tambahan untuk menyinkronkan informasi antara instance-instance tersebut, tetapi dapat memberikan manfaat besar dalam memperluas fungsionalitas aplikasi secara keseluruhan.
+
+## 3. Walaupun saya belum memiliki pengalaman langsung dalam membuat tes sendiri atau mengembangkan dokumentasi pada Postman Collection, saya meyakini nilai besar dari kedua praktik tersebut. Dalam pengujian, kita dapat secara terstruktur memeriksa setiap respons dari aplikasi untuk memastikan konsistensi dan kepatuhan dengan harapan yang telah ditetapkan. Ini tidak hanya membantu mengidentifikasi masalah dengan cepat, tetapi juga memastikan bahwa setiap skenario telah diperhitungkan. Di sisi lain, pengembangan dokumentasi menggunakan Postman Collection juga memiliki manfaat yang signifikan. Dokumentasi yang jelas dan terperinci memungkinkan pengguna atau pengembang lain untuk memahami API dengan lebih baik, dengan informasi tentang setiap endpoint, parameter yang diperlukan, dan respons yang diharapkan. Meskipun saya belum menjalankan praktik ini secara langsung, saya yakin bahwa keduanya merupakan elemen penting dalam pengembangan aplikasi yang profesional. Menerapkan pengujian yang baik dan dokumentasi yang terperinci dapat meningkatkan kualitas dan kehandalan aplikasi secara keseluruhan.
